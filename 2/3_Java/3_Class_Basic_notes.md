@@ -1,9 +1,10 @@
-//================================================================================
-// JAVA REVISION HUB - Complete Guide with Comments
-// Topics: Data Types, Access Modifiers, Command Line Args, Conversions,
-//         Input/Output, Control Flow (if-else, switch), Basic Functions
-//================================================================================
-
+# Code
+==================================================================================
+    JAVA REVISION HUB - Complete Guide with Comments
+    Topics: Data Types, Access Modifiers, Command Line Args, Conversions,
+            Input/Output, Control Flow (if-else, switch), Basic Functions
+--================================================================================
+```java
 import java.util.Scanner;  // For taking user input
 import java.io.PrintStream; // Easy Output
 
@@ -603,4 +604,4 @@ public class JavaRevisionHub {
         value = 999;  // Only local copy changes
         System.out.println("Inside method: " + value);
     }
-}
+}```
