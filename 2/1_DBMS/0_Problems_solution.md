@@ -1,0 +1,102 @@
+## 🟢 What is a Service in Oracle DBMS?
+- A **service** is the logical name Oracle uses to identify a running database instance.  
+- It’s how clients know *which database* they’re connecting to.  
+- Example: In Oracle Free, the default service is **FREE**. You also saw **FREEXDB**, which is used internally for XML DB features.  
+- Multiple services can point to the same instance, allowing different workloads or applications to connect differently.
+
+---
+
+## 🟢 What is a Listener?
+- The **listener** is a background process that waits for incoming client requests on a specific host/port (commonly `localhost:1521`).  
+- When a client says “connect me to service FREE,” the listener checks if that service is registered and then hands the connection over to the database.  
+- Without the listener, remote tools like SQL Developer cannot talk to the database.
+
+---
+
+## 🟢 What is a Connection?
+- A **connection** is the actual link between a client (like SQL Developer) and the database service through the listener.  
+- Defined by:
+  - **Connection Name** (your label, e.g., `26ai`)  
+  - **Username/Password** (e.g., `system`)  
+  - **Host/Port** (`localhost:1521`)  
+  - **Service Name** (`FREE`)  
+- Once established, you can run queries, manage schemas, and interact with the database.
+
+---
+
+## 🟢 What is TNS?
+- **TNS (Transparent Network Substrate)** is Oracle’s networking layer.  
+- It defines how clients and servers communicate over the network.  
+- Configurations are stored in files like:
+  - `listener.ora` → defines the listener process and endpoints.  
+  - `tnsnames.ora` → defines aliases for services (so you can use a simple name instead of writing the full `(DESCRIPTION=...)` string).  
+- Example entry in `tnsnames.ora`:
+  ```text
+  FREE =
+    (DESCRIPTION =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
+      (CONNECT_DATA =
+        (SERVICE_NAME = FREE)
+      )
+    )
+  ```
+- This lets you connect using just `FREE` instead of typing the full network string.
+
+---
+## 🟢 The Problem
+- Listener was running (`LISTENER`), but showed *“supports no services.”*  
+- SQL Developer couldn’t connect to service `FREE`.  
+- Root cause: mismatch between database parameters (`local_listener=LISTENER_FREE`) and the actual listener alias (`LISTENER`).  
+- Also, Oracle Free didn’t have a proper TNS alias defined, so the database couldn’t resolve `LISTENER` correctly.
+
+---
+
+## 🟢 The Solution (Step by Step)
+1. **Checked listener alias**  
+   - Found in `listener.ora` and `lsnrctl status` → actual alias was `LISTENER`.  
+
+2. **Fixed `tnsnames.ora`**  
+   - Added an entry so `LISTENER` could be resolved:  
+     ```text
+     LISTENER =
+       (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
+     ```
+   - This gave Oracle a valid network name to use.
+
+3. **Aligned database parameters in SQL*Plus**  
+   - Set the correct service name:  
+     ```sql
+     alter system set service_names=FREE scope=both;
+     ```
+   - Pointed to the proper listener (either via alias or full address string):  
+     ```sql
+     alter system set local_listener='(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1521))' scope=both;
+     ```
+   - Forced registration:  
+     ```sql
+     alter system register;
+     ```
+
+4. **Verified with `lsnrctl status`**  
+   - Finally saw:  
+     ```
+     Service "FREE" has 1 instance(s).
+     Service "FREEXDB" has 1 instance(s).
+     ```
+   - Database successfully registered with the listener.
+
+---
+
+## 🟢 Key Concepts Recap
+- **Service** → Logical identity of the database instance (e.g., `FREE`).  
+- **Listener** → Background process that accepts client requests and hands them to the database.  
+- **Connection** → The handshake between client and database via the listener (host, port, service, username, password).  
+- **TNS (Transparent Network Substrate)** → Oracle’s networking layer + config files (`listener.ora`, `tnsnames.ora`) that map service names to actual network addresses.
+
+---
+
+## 🟢 Analogy
+- **Service** = the database’s *name tag*.  
+- **Listener** = the *gatekeeper worker* who answers requests.  
+- **TNS** = the *address book* that tells Oracle how to reach the gatekeeper.  
+- **Connection** = the *handshake* between client and database through the gatekeeper.
