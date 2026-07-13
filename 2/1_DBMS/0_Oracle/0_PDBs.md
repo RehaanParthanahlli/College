@@ -1,4 +1,4 @@
-## 🗂️ What are PDBs in Oracle??
+## 🗂️ What are PDBs in Oracle???
 
 - **PDB** stands for **Pluggable Database**.  
 - Introduced with **Oracle 12c**, it’s part of the **Multitenant Architecture**.  
