@@ -1,5 +1,5 @@
-## How to create a DB
-### 🔍 Check services (databases)
+## Services
+### 🔍 Check services
 Run this outside SQL*Plus, in your terminal/command prompt:
 ```bash
 lsnrctl status
@@ -52,8 +52,8 @@ dbca
 This wizard lets you create a new database. Once created, it registers as a new service with the listener (e.g., `XYZ`).
 
 ---
-## Two methods to create a connection
-### 🧩 Create a connection
+## Two methods to create a DB and connection(UI and CLI, but for connection you must add later manually in SQL Dev UI)
+### 🧩 Create a connection and DB
 After the service exists, you create a connection in SQL Developer or SQL*Plus by specifying:
 - Username
 - Password
@@ -140,7 +140,7 @@ sqlplus rehaan/mypassword@XYZ
 - **Manual CREATE DATABASE** is powerful but requires you to define everything (redo logs, tablespaces, character sets, etc.).  
 - Once created, the database registers as a **service** (like `XYZ`) and you can connect to it with any user you define.  
 - Multiple services can run together; your SQL executes only in the service you connected to.  
-## Doubt(We have to add connection manually!)
+## Doubt(We have to add connection manually in SQL Developer UI!)
 When you **create a database/service** (say `XYZ`), Oracle registers it with the listener. But in tools like **SQL Developer** or even in SQL*Plus, you still need to **create a connection yourself** that points to that service.  
 
 Here’s how it works step‑by‑step:
@@ -177,3 +177,4 @@ sqlplus rehaan/mypassword@XYZ
 - **Connection name** → just a friendly label in SQL Developer so you can recognize which saved login is which.  
 
 So yes: after creating the database/service, you must **add a connection manually in the UI** (or connect directly in SQL*Plus) to start working with it.
+## Go to more doubt to understand further

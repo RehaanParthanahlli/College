@@ -1,3 +1,4 @@
+# JetBrains Vs IntelliJ
 **JetBrains is the company, and IntelliJ IDEA is one of its products. They are not the same—JetBrains makes many developer tools, while IntelliJ IDEA is their flagship IDE for Java and other JVM languages.**  
 
 ---

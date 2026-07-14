@@ -1,4 +1,4 @@
-# Multitenant container Localhost: 1521 or pluggable db localhost:1521/FREEPDB1
+## Multitenant container Localhost: 1521 or pluggable db localhost:1521/FREEPDB1
 ### ❓ Doubt 1: *What is Oracle 26ai and Oracle SQL Developer?*
 **Answer:**  
 - **Oracle SQL Developer** → Free GUI tool (like pgAdmin for Postgres) to query/manage Oracle DB.  
