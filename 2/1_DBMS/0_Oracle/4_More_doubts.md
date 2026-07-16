@@ -49,3 +49,8 @@ FROM v$session
 GROUP BY service_name;
 ```
 That way you know how many users are connected under each service.
+# How to see no of tables(Either Oracle SQL Dev UI or SELECT table_names from user_tables;)
+# How to change the password of user?
+```sql
+ALTER USER username IDENTIFIED BY newPassword;
+```
