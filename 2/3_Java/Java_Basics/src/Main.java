@@ -7,9 +7,9 @@
 import java.util.Scanner;  // For taking user input
 import java.io.PrintStream; // Easy Output
 
-public class JavaRevisionHub {
-    PrintStream out = System.out;
-    out.println("With the help of PrintStream, Output became easy!");
+public class Main {
+    //PrintStream out = System.out;
+    //out.println("With the help of PrintStream, Output became easy!");
     //========================================================================
     // SECTION 1: DATA TYPES & ACCESS MODIFIERS
     //========================================================================
@@ -443,7 +443,7 @@ public class JavaRevisionHub {
         System.out.println("\n=== BASIC FUNCTIONS (METHODS) ===");
 
         // Create an instance (object) to call non-static methods
-        JavaRevisionHub obj = new JavaRevisionHub();
+        Main obj = new Main();
 
         // Calling methods with no parameters and no return value
         obj.sayHello();
@@ -475,7 +475,7 @@ public class JavaRevisionHub {
 
         // Calling static method (no object needed)
         System.out.println("\n--- Static Method ---");
-        double circleArea = JavaRevisionHub.calculateCircleArea(5.0);
+        double circleArea = Main.calculateCircleArea(5.0);
         /* Alternatively:
         double circleArea = CalculateCircleArea(5.0);
 
