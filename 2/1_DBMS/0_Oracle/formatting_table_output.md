@@ -1,4 +1,7 @@
+# Make your table look good!(Readable)
+```sql
 SQL> SET LINESIZE 200;
 SQL> COLUMN TITLE FORMAT A50;
 SQL> COLUMN AUTHOR FORMAT A20;
 SQL> SET PAGESIZE 50;
+```

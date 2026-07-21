@@ -456,7 +456,7 @@ GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE,
 -- ============================================================
 CONNECT "25BCE1087"/studentpass@COLLEGE_PDB
 TNS issue
-```text
+
 COLLEGE_PDB =
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 1521))
@@ -464,7 +464,7 @@ COLLEGE_PDB =
       (SERVICE_NAME = college_pdb)
     )
   )
-```
+
 
 
 -- Entity: Department
