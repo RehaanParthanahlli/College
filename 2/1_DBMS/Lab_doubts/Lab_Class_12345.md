@@ -55,7 +55,7 @@ Here are your complete, structured notes for **SQL Lab** — extracted directly 
 | Category | Purpose | Commands |
 |----------|---------|----------|
 | **DDL** | Data Definition Language | CREATE, ALTER, DROP, TRUNCATE, RENAME |
-| **DML** | Data Manipulation Language | SELECT, INSERT, UPDATE, DELETE |
+| **DML/DQL** | Data Manipulation Language | SELECT(DQL, is used specifically to reading the data!), INSERT, UPDATE, DELETE |
 | **TCL** | Transaction Control Language | COMMIT, ROLLBACK, SAVEPOINT |
 | **DCL** | Data Control Language | GRANT, REVOKE |
 
@@ -87,7 +87,7 @@ CREATE TABLE student (
 | Data Type | Description |
 |-----------|-------------|
 | `CHAR` | Fixed-length character |
-| `VARCHAR(size)` | Variable-length character |
+| `VARCHAR2(size)` | Variable-length character |
 | `INT` | Integer |
 | `FLOAT` | Floating point |
 | `NUMBER(precision, scale)` | Numeric with precision and scale |

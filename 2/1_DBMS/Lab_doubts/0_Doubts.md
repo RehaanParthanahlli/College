@@ -1,1 +1,0 @@
-# What is Cascade? What is Clause? What are diff String functions and date functions?

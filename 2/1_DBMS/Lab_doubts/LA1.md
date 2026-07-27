@@ -24,7 +24,7 @@ CREATE TABLE table_name (
 | `VARCHAR2(n)` | Variable-length character string (use this, NOT `VARCHAR`) | `VARCHAR2(20)` |
 | `NUMBER(p,s)` | Numeric data; `p` = precision, `s` = scale | `NUMBER(9)`, `NUMBER(9,2)` |
 | `NUMBER` | Integer or floating-point number | `NUMBER` |
-| `INT` | Integer (synonym for `NUMBER(38)`) | `INT` |
+| `INT` | Integer (synonym for `NUMBER(38)`) | `INT or INTEGER` |
 | `DATE` | Date and time (stores century, year, month, day, hour, minute, second) | `DATE` |
 | `CHAR(n)` | Fixed-length character string | `CHAR(10)` |
 | `DECIMAL(p,s)` | Synonym for `NUMBER(p,s)` in Oracle | `DECIMAL(10,2)` |
