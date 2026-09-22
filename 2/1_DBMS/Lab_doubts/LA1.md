@@ -171,8 +171,7 @@ DROP TABLE table_name PURGE;                -- Skips recycle bin, permanently de
 
 ---
 
-### 1.3 DESCRIBE (DESC) Command
-
+### 1.3 DESCRIBE (DESC) Command (Also Drop, drop table tablename, dont forget commit)
 **Syntax:**
 ```sql
 DESC table_name;
